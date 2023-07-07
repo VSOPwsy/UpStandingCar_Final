@@ -110,7 +110,6 @@ int main(void)
   MX_TIM4_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  delay_init(72);
 	
 	HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_4);
@@ -172,8 +171,7 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	if(htim==&htim1){
-		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);			
+	if(htim==&htim1){		
 		DirectionL = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3);
 		DirectionR = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim4)==1?0:1;
 		if(DirectionL==0&DirectionR==0)
@@ -196,12 +194,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		MotorSpeedL = (short)((65535-__HAL_TIM_GET_COUNTER(&htim3)));
 		MotorSpeedR = (short)(__HAL_TIM_GET_COUNTER(&htim4));
 		}
-//		short MotorSpeedL = (short)(__HAL_TIM_GET_COUNTER(&htim3)); 
-//		short MotorSpeedR = (short)((65536-__HAL_TIM_GET_COUNTER(&htim4))); 
 		__HAL_TIM_SET_COUNTER(&htim3, 0);
 		__HAL_TIM_SET_COUNTER(&htim4, 0);
-		printf("Speed_L:%d\nSpeed_R:%d\nDirection_L:%d\nDirection_R:%d\n", MotorSpeedL, MotorSpeedR,DirectionL,DirectionR);	
-		//printf("123");
+		printf("Speed_L:%d\nSpeed_R:%d\nDirection_L:%d\nDirection_R:%d\n", MotorSpeedL, MotorSpeedR,DirectionL,DirectionR);
 	}
 }
 /* USER CODE END 4 */

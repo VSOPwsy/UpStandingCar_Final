@@ -38,3 +38,4 @@ upstandingcar\inv_mpu_dmp_motion_driver.o: ../Core/Inc/./ATK_MS6050/eMPL/inv_mpu
 upstandingcar\inv_mpu_dmp_motion_driver.o: ../Core/Inc/./ATK_MS6050/eMPL/dmpKey.h
 upstandingcar\inv_mpu_dmp_motion_driver.o: ../Core/Inc/./ATK_MS6050/eMPL/dmpmap.h
 upstandingcar\inv_mpu_dmp_motion_driver.o: ../Core/Inc/./SYSTEM/delay/delay.h
+upstandingcar\inv_mpu_dmp_motion_driver.o: ../Core/Inc/main.h

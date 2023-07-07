@@ -41,7 +41,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-
+int cnt = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -187,7 +187,15 @@ void SysTick_Handler(void)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-
+  if (cnt < 1000)
+  {
+    cnt++;
+  }
+  else
+  {
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    cnt = 0;
+  }
   /* USER CODE END SysTick_IRQn 1 */
 }
 

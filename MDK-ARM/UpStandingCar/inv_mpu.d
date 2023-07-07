@@ -36,4 +36,5 @@ upstandingcar\inv_mpu.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_e
 upstandingcar\inv_mpu.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 upstandingcar\inv_mpu.o: ../Core/Inc/./ATK_MS6050/atk_ms6050.h
 upstandingcar\inv_mpu.o: ../Core/Inc/./SYSTEM/delay/delay.h
+upstandingcar\inv_mpu.o: ../Core/Inc/main.h
 upstandingcar\inv_mpu.o: ../Core/Inc/./ATK_MS6050/eMPL/inv_mpu_dmp_motion_driver.h

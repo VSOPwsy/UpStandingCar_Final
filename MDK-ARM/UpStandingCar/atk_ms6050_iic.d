@@ -31,3 +31,4 @@ upstandingcar\atk_ms6050_iic.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ha
 upstandingcar\atk_ms6050_iic.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 upstandingcar\atk_ms6050_iic.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 upstandingcar\atk_ms6050_iic.o: ..\Core\Inc\ATK_MS6050\../SYSTEM/delay/delay.h
+upstandingcar\atk_ms6050_iic.o: ../Core/Inc/main.h

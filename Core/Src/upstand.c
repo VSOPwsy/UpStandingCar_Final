@@ -42,15 +42,6 @@ void UpStand()
 		Update_PID_DerivKnown(&angle_pid, rol, gyr_x, &angle_pid_output);
 		
 		Motor_Output(angle_pid_output);
-
-//		if (rol < 0)
-//		{
-//			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-//		}
-//		else
-//		{
-//			HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-//		}
 	}
 }
 
