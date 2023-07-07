@@ -22,6 +22,9 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "pid.h"
+#include "upstand.h"
+#include "motor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -196,6 +199,10 @@ void SysTick_Handler(void)
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
     cnt = 0;
   }
+
+	Update_PID_DerivKnown(&angle_pid, rol, gyr_x, &angle_pid_output);
+		
+	Motor_Output(angle_pid_output);
   /* USER CODE END SysTick_IRQn 1 */
 }
 

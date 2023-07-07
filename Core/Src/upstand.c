@@ -39,9 +39,6 @@ void UpStand()
 		atk_ms6050_dmp_get_data(&pit, &rol, &yaw);
 		atk_ms6050_get_gyroscope(&gyr_x, &gyr_y, &gyr_z);
 		
-		Update_PID_DerivKnown(&angle_pid, rol, gyr_x, &angle_pid_output);
-		
-		Motor_Output(angle_pid_output);
 	}
 }
 

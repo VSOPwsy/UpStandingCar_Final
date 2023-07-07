@@ -1,3 +1,6 @@
+#ifndef __PID_H
+#define __PID_H
+
 typedef struct{
     float desired;
     float error;
@@ -19,3 +22,5 @@ void PID_Set_IntegrateLimit(PID *, float);
 
 void Update_PID(PID *, float current, float *output);
 void Update_PID_DerivKnown(PID *, float current, float derivative, float *output);
+
+#endif
