@@ -190,19 +190,22 @@ void SysTick_Handler(void)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-  if (cnt < 200)
+
+	Update_PID_DerivKnown(&angle_pid, rol, gyr_x, &angle_pid_output);
+		
+	Motor_Output(angle_pid_output + speed_pid_output);
+
+  if (cnt < 8)
   {
     cnt++;
   }
   else
   {
-    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    int speed = (MotorSpeedL + MotorSpeedR) * 0.5;
+    Update_PID(&speed_pid, speed, &speed_pid_output);
+    // HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
     cnt = 0;
   }
-
-	Update_PID_DerivKnown(&angle_pid, rol, gyr_x, &angle_pid_output);
-		
-	Motor_Output(angle_pid_output);
   /* USER CODE END SysTick_IRQn 1 */
 }
 

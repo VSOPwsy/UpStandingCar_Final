@@ -29,6 +29,13 @@ void PID_Set_Kd(PID *pid, float Kd)
   pid->Kd = Kd;
 }
 
+void PID_Set_Coefficients(PID *pid, float Kp, float Ki, float Kd)
+{
+  pid->Kp = Kp;
+  pid->Ki = Ki;
+  pid->Kd = Kd;
+}
+
 void PID_Set_Target(PID *pid, float desired)
 {
   pid->desired = desired;

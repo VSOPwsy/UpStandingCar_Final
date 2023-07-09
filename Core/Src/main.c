@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stdio.h"
+#include <stdio.h>
 #include "upstand.h"
 #include "pid.h"
 #include "./ATK_MS6050/atk_ms6050.h"
@@ -53,8 +53,8 @@
 /* USER CODE BEGIN PV */
 int 	DirectionL;
 int 	DirectionR;
-short MotorSpeedL;
-short MotorSpeedR;
+int MotorSpeedL;
+int MotorSpeedR;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -173,30 +173,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim==&htim1){		
 		DirectionL = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3);
-		DirectionR = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim4)==1?0:1;
-		if(DirectionL==0&DirectionR==0)
-		{
-		MotorSpeedL = (short)(__HAL_TIM_GET_COUNTER(&htim3)); 
-		MotorSpeedR = (short)((65535-__HAL_TIM_GET_COUNTER(&htim4))); 
-		}
-		else if(DirectionL==0&DirectionR==1)
-		{
-		MotorSpeedL = (short)(__HAL_TIM_GET_COUNTER(&htim3)); 
-		MotorSpeedR = (short)(__HAL_TIM_GET_COUNTER(&htim4)); 
-		}
-		else if(DirectionL==1&DirectionR==0)
-		{
-		MotorSpeedL = (short)((65535-__HAL_TIM_GET_COUNTER(&htim3))); 
-		MotorSpeedR = (short)((65535-__HAL_TIM_GET_COUNTER(&htim4))); 			
-		}
-		else
-		{
-		MotorSpeedL = (short)((65535-__HAL_TIM_GET_COUNTER(&htim3)));
-		MotorSpeedR = (short)(__HAL_TIM_GET_COUNTER(&htim4));
-		}
+		DirectionR = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim4);
+
+    MotorSpeedL = DirectionL == 0 ? __HAL_TIM_GET_COUNTER(&htim3) : - __HAL_TIM_GET_COUNTER(&htim3);
+    MotorSpeedR = DirectionL == 1 ? __HAL_TIM_GET_COUNTER(&htim3) : - __HAL_TIM_GET_COUNTER(&htim3);
+		
 		__HAL_TIM_SET_COUNTER(&htim3, 0);
 		__HAL_TIM_SET_COUNTER(&htim4, 0);
-		printf("Speed_L:%d\nSpeed_R:%d\nDirection_L:%d\nDirection_R:%d\n", MotorSpeedL, MotorSpeedR,DirectionL,DirectionR);
 	}
 }
 /* USER CODE END 4 */

@@ -16,6 +16,8 @@ void PID_Set_Kp(PID *, float);
 void PID_Set_Ki(PID *, float);
 void PID_Set_Kd(PID *, float);
 
+void PID_Set_Coefficients(PID *, float, float, float);
+
 void PID_Set_Target(PID *, float);
 
 void PID_Set_IntegrateLimit(PID *, float);
