@@ -1,7 +1,5 @@
 upstandingcar\motor.o: ..\Core\Src\motor.c
 upstandingcar\motor.o: ../Core/Inc/motor.h
-upstandingcar\motor.o: ../Core/Inc/tim.h
-upstandingcar\motor.o: ../Core/Inc/main.h
 upstandingcar\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 upstandingcar\motor.o: ../Core/Inc/stm32f1xx_hal_conf.h
 upstandingcar\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -31,3 +29,5 @@ upstandingcar\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 upstandingcar\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 upstandingcar\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 upstandingcar\motor.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+upstandingcar\motor.o: ../Core/Inc/tim.h
+upstandingcar\motor.o: ../Core/Inc/main.h

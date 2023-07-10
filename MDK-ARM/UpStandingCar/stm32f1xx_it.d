@@ -33,3 +33,4 @@ upstandingcar\stm32f1xx_it.o: ../Core/Inc/stm32f1xx_it.h
 upstandingcar\stm32f1xx_it.o: ../Core/Inc/pid.h
 upstandingcar\stm32f1xx_it.o: ../Core/Inc/upstand.h
 upstandingcar\stm32f1xx_it.o: ../Core/Inc/motor.h
+upstandingcar\stm32f1xx_it.o: ../Core/Inc/tim.h

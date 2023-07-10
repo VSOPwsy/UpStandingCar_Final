@@ -33,7 +33,6 @@ upstandingcar\main.o: ../Core/Inc/i2c.h
 upstandingcar\main.o: ../Core/Inc/tim.h
 upstandingcar\main.o: ../Core/Inc/usart.h
 upstandingcar\main.o: ../Core/Inc/gpio.h
-upstandingcar\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 upstandingcar\main.o: ../Core/Inc/upstand.h
 upstandingcar\main.o: ../Core/Inc/pid.h
 upstandingcar\main.o: ../Core/Inc/./ATK_MS6050/atk_ms6050.h

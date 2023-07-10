@@ -25,7 +25,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
 #include "upstand.h"
 #include "pid.h"
 #include "./ATK_MS6050/atk_ms6050.h"
@@ -51,10 +50,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-int 	DirectionL;
-int 	DirectionR;
-int MotorSpeedL;
-int MotorSpeedR;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -65,14 +61,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t whoami;
-int fputc(int ch, FILE *p)
-{
-	while(!(USART1->SR & (1<<7)));
-	USART1->DR = ch;
-	
-	return ch;
-}
+
 /* USER CODE END 0 */
 
 /**
@@ -122,7 +111,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-    UpStand();
+  UpStand();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -169,19 +158,19 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	if(htim==&htim1){		
-		DirectionL = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3);
-		DirectionR = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim4);
+// void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+// {
+// 	if(htim==&htim1){		
+// 		DirectionL = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim3);
+// 		DirectionR = __HAL_TIM_IS_TIM_COUNTING_DOWN(&htim4);
 
-    MotorSpeedL = DirectionL == 0 ? __HAL_TIM_GET_COUNTER(&htim3) : - __HAL_TIM_GET_COUNTER(&htim3);
-    MotorSpeedR = DirectionL == 1 ? __HAL_TIM_GET_COUNTER(&htim3) : - __HAL_TIM_GET_COUNTER(&htim3);
+//     MotorSpeedL = DirectionL == 0 ? __HAL_TIM_GET_COUNTER(&htim3) : - __HAL_TIM_GET_COUNTER(&htim3);
+//     MotorSpeedR = DirectionL == 1 ? __HAL_TIM_GET_COUNTER(&htim3) : - __HAL_TIM_GET_COUNTER(&htim3);
 		
-		__HAL_TIM_SET_COUNTER(&htim3, 0);
-		__HAL_TIM_SET_COUNTER(&htim4, 0);
-	}
-}
+// 		__HAL_TIM_SET_COUNTER(&htim3, 0);
+// 		__HAL_TIM_SET_COUNTER(&htim4, 0);
+// 	}
+// }
 /* USER CODE END 4 */
 
 /**

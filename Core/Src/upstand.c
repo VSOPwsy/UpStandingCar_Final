@@ -23,6 +23,7 @@ void UpStand_Init()
 	PID_Set_Coefficients(&angle_pid, 95, 0, -0.6);
 
 	PID_Init(&speed_pid);
+	PID_Set_IntegrateLimit(&speed_pid,500);
 	PID_Set_Coefficients(&speed_pid, 20, 0, 0.1);
 
 	atk_ms6050_init();
@@ -33,6 +34,7 @@ void UpStand_Init()
 void UpStand()
 {
 	UpStand_Init();
+	
 	while (1)
 	{
 		atk_ms6050_dmp_get_data(&pit, &rol, &yaw);

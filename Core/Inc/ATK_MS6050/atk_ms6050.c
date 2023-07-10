@@ -30,25 +30,25 @@
  * @param       无
  * @retval      无
  */
-static void atk_ms6050_hw_init(void)
-{
-    // GPIO_InitTypeDef gpio_init_struct = {0};
-    
-    // /* 使能AD0引脚GPIO的时钟 */
-    // ATK_MS6050_AD0_GPIO_CLK_ENABLE();
-    
-    // /* 初始化AD0引脚 */
-    // gpio_init_struct.Pin    = ATK_MS6050_AD0_GPIO_PIN;  /* AD0引脚 */
-    // gpio_init_struct.Mode   = GPIO_MODE_OUTPUT_PP;      /* 推挽输出 */
-    // gpio_init_struct.Pull   = GPIO_PULLUP;              /* 上拉 */
-    // gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;     /* 高速 */
-    // HAL_GPIO_Init(ATK_MS6050_AD0_GPIO_PORT, &gpio_init_struct);
-    
-    // /* 控制ATK-MS6050的AD0引脚为低电平
-    //  * 设置其IIC的从机地址为0x68
-    //  */
-    ATK_MS6050_AD0(0);
-}
+//static void atk_ms6050_hw_init(void)
+//{
+//    // GPIO_InitTypeDef gpio_init_struct = {0};
+//    
+//    // /* 使能AD0引脚GPIO的时钟 */
+//    // ATK_MS6050_AD0_GPIO_CLK_ENABLE();
+//    
+//    // /* 初始化AD0引脚 */
+//    // gpio_init_struct.Pin    = ATK_MS6050_AD0_GPIO_PIN;  /* AD0引脚 */
+//    // gpio_init_struct.Mode   = GPIO_MODE_OUTPUT_PP;      /* 推挽输出 */
+//    // gpio_init_struct.Pull   = GPIO_PULLUP;              /* 上拉 */
+//    // gpio_init_struct.Speed  = GPIO_SPEED_FREQ_HIGH;     /* 高速 */
+//    // HAL_GPIO_Init(ATK_MS6050_AD0_GPIO_PORT, &gpio_init_struct);
+//    
+//    // /* 控制ATK-MS6050的AD0引脚为低电平
+//    //  * 设置其IIC的从机地址为0x68
+//    //  */
+//    ATK_MS6050_AD0(0);
+//}
 
 /**
  * @brief       往ATK-MS6050的指定寄存器连续写入指定数据
